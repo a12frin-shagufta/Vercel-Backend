@@ -1,0 +1,29 @@
+# node modules - never push this
+node_modules/
+
+# environment variables - contains secrets
+.env
+
+# log files
+*.log
+logs/
+npm-debug.log*
+
+# OS generated files
+.DS_Store
+
+# Build files (if any)
+dist/
+build/
+
+# IDE files
+.vscode/
+.idea/
+
+# Coverage reports (from testing tools)
+coverage/
+
+# Temporary files
+tmp/
+temp/
+
