@@ -2,7 +2,7 @@ import userModel from "../models/userModel.js";
 import productModel from "../models/productModel.js";
 import Offer from "../models/offerModel.js";
 import mongoose from "mongoose";
-import { use } from "react";
+
 
 // Add product to user cart
 const addToCart = async (req, res) => {
@@ -190,6 +190,7 @@ const getUserCart = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
 
 
 
