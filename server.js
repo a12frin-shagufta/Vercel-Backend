@@ -11,31 +11,30 @@ import contactRouter from './routes/contactRoute.js';
 import newsletterRoutes from "./routes/newsletterRoute.js";
 import offerRoutes from "./routes/offerRoute.js";
 
-
 // App config
 const app = express();
-const port = process.env.PORT || 3000;
+
+// Connect DB and Cloudinary
 connectDb();
 connectCloudinary();
 
-//middlewares
+// Middlewares
 app.use(express.json());
-app.use(cors()) //acess the backend from any ip
+app.use(cors());
 
-// api endpoints
-app.use('/api/user',userRouter);
-app.use('/api/product',productRouter);
-app.use('/api/cart',cartRouter)
-app.use('/api/order',orderRouter)
-app.use("/api",contactRouter)
+// Routes
+app.use('/api/user', userRouter);
+app.use('/api/product', productRouter);
+app.use('/api/cart', cartRouter);
+app.use('/api/order', orderRouter);
+app.use("/api", contactRouter);
 app.use("/api/newsletter", newsletterRoutes);
 app.use("/api/offer", offerRoutes);
 
+// Test route
+app.get('/', (req, res) => {
+    res.send("Hello from Vercel!");
+});
 
-app.get('/',(req,res) => {
-    res.send("Hello")
-})
-
-app.listen(port,() => {
-    console.log(`Server is running on port ${port}`)
-})
+// ❗ Export app instead of listen()
+export default app;
